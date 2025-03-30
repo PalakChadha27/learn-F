@@ -4,6 +4,7 @@ import {
   faTachometerAlt, faInbox, faBook, faTasks, faUsers, 
   faCog, faSignOutAlt, faBell, faEnvelope, faPlay, faEllipsisH 
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const CourseDashboard = () => {
   return (
@@ -157,7 +158,7 @@ const StatsCard = ({ value, label }) => {
 
 const ProfileCard = () => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm">
+    <div className="bg-white p-6 rounded-lg shadow-sm h-70">
       <img 
         alt="Profile Picture" 
         className="w-16 h-16 rounded-full mx-auto mb-4" 
@@ -172,7 +173,12 @@ const ProfileCard = () => {
         <FontAwesomeIcon icon={faEnvelope} className="text-gray-500 hover:text-purple-600 cursor-pointer" />
         <FontAwesomeIcon icon={faCog} className="text-gray-500 hover:text-purple-600 cursor-pointer" />
       </div>
+      <Link to="/signup">
+      <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
+                  Register Now
+                </button></Link>
     </div>
+    
   );
 };
 
