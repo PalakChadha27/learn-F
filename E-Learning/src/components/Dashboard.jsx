@@ -7,12 +7,12 @@ import {
 
 const CourseDashboard = () => {
   return (
-    <div className="flex min-h-screen bg-gray-100 text-gray-800 font-inter">
+    <div className="flex min-h-screen right-0 mr-0 bg-gray-100 text-gray-800 font-inter">
       {/* Sidebar */}
       <Sidebar />
       
       {/* Main Content */}
-      <div className="flex-1 p-6">
+      <div className="flex-1 p-6 right-0 mr-0">
         {/* Top Section - Banner and Stats */}
         <div className="flex flex-col lg:flex-row justify-between mb-6 gap-6">
           <div className="flex-1">
@@ -41,7 +41,7 @@ const CourseDashboard = () => {
           </div>
           
           {/* Profile Card on the right */}
-          <div className="w-full lg:w-64">
+          <div className="w-full lg:w-64 mr-0">
             <ProfileCard />
           </div>
         </div>
