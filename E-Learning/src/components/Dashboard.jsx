@@ -1,17 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faTachometerAlt, 
-  faInbox, 
-  faBook, 
-  faTasks, 
-  faUsers, 
-  faCog, 
-  faSignOutAlt, 
-  faBell, 
-  faEnvelope, 
-  faPlay, 
-  faEllipsisH 
+  faTachometerAlt, faInbox, faBook, faTasks, faUsers, 
+  faCog, faSignOutAlt, faBell, faEnvelope, faPlay, faEllipsisH 
 } from '@fortawesome/free-solid-svg-icons';
 
 const CourseDashboard = () => {
@@ -22,8 +13,53 @@ const CourseDashboard = () => {
       
       {/* Main Content */}
       <div className="flex-1 p-6">
-        <HeaderSection />
-        <ContinueWatchingSection />
+        {/* Top Section - Banner and Stats */}
+        <div className="flex flex-col lg:flex-row justify-between mb-6 gap-6">
+          <div className="flex-1">
+            <div className="bg-purple-100 p-6 rounded-lg flex flex-col md:flex-row items-center justify-between">
+              <div className="mb-4 md:mb-0 md:mr-4">
+                <h2 className="text-2xl font-semibold mb-2">
+                  Sharpen Your Skills With Professional Online Courses
+                </h2>
+                <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
+                  Join Now
+                </button>
+              </div>
+              <img 
+                alt="Online Course" 
+                className="w-32 h-32 object-contain" 
+                src="https://storage.googleapis.com/a1aa/image/VR8lXtOe_0ztHzT2CCkbNLJkobKP93hu_Z6ktp377F0.jpg" 
+              />
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+              <StatsCard value="8/15 Watched" label="Front-end" />
+              <StatsCard value="3/14 Watched" label="Back-end" />
+              <StatsCard value="2/6 Watched" label="Product Design" />
+              <StatsCard value="9/10 Watched" label="Project Manager" />
+            </div>
+          </div>
+          
+          {/* Profile Card on the right */}
+          <div className="w-full lg:w-64">
+            <ProfileCard />
+          </div>
+        </div>
+
+        {/* Middle Section - Continue Watching and Mentor List */}
+        <div className="flex flex-col lg:flex-row gap-6 mb-6">
+          {/* Continue Watching - Takes more space */}
+          <div className="flex-1 lg:flex-[2]">
+            <ContinueWatchingSection />
+          </div>
+          
+          {/* Mentor List - Takes less space */}
+          <div className="flex-1 lg:flex-[1]">
+            <MentorList />
+          </div>
+        </div>
+
+        {/* Bottom Section - Mentor Table */}
         <MentorTableSection />
       </div>
     </div>
@@ -110,45 +146,9 @@ const FriendItem = ({ name, role, imgSrc }) => {
   );
 };
 
-const HeaderSection = () => {
-  return (
-    <div className="flex flex-col lg:flex-row justify-between mb-8 gap-6">
-      <div className="flex-1">
-        <div className="bg-purple-100 p-6 rounded-lg flex flex-col md:flex-row items-center justify-between">
-          <div className="mb-4 md:mb-0 md:mr-4">
-            <h2 className="text-2xl font-semibold mb-2">
-              Sharpen Your Skills With Professional Online Courses
-            </h2>
-            <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
-              Join Now
-            </button>
-          </div>
-          <img 
-            alt="Online Course" 
-            className="w-32 h-32 object-contain" 
-            src="https://storage.googleapis.com/a1aa/image/VR8lXtOe_0ztHzT2CCkbNLJkobKP93hu_Z6ktp377F0.jpg" 
-          />
-        </div>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-          <StatsCard value="8/15 Watched" label="Front-end" />
-          <StatsCard value="3/14 Watched" label="Back-end" />
-          <StatsCard value="2/6 Watched" label="Product Design" />
-          <StatsCard value="9/10 Watched" label="Project Manager" />
-        </div>
-      </div>
-      
-      <div className="w-full lg:w-64 flex flex-col gap-6">
-        <ProfileCard />
-        <MentorList />
-      </div>
-    </div>
-  );
-};
-
 const StatsCard = ({ value, label }) => {
   return (
-    <div className="bg-white p-4 rounded-lg text-center">
+    <div className="bg-white p-4 rounded-lg text-center shadow-sm">
       <div className="text-purple-600 text-xl font-semibold">{value}</div>
       <div className="text-gray-500">{label}</div>
     </div>
@@ -157,14 +157,14 @@ const StatsCard = ({ value, label }) => {
 
 const ProfileCard = () => {
   return (
-    <div className="bg-white p-6 rounded-lg text-center">
+    <div className="bg-white p-6 rounded-lg shadow-sm">
       <img 
         alt="Profile Picture" 
         className="w-16 h-16 rounded-full mx-auto mb-4" 
         src="https://storage.googleapis.com/a1aa/image/i88OePYu96HwF8JP7itgOMOpGkDjF7QGr3Teaogmrdo.jpg" 
       />
-      <div className="text-lg font-semibold">Good Morning Alex</div>
-      <div className="text-sm text-gray-500 mb-4">
+      <div className="text-lg font-semibold text-center">Good Morning Alex</div>
+      <div className="text-sm text-gray-500 mb-4 text-center">
         Continue Your Journey And Achieve Your Target
       </div>
       <div className="flex justify-center space-x-4">
@@ -197,46 +197,30 @@ const MentorList = () => {
       name: "Adam Chekish",
       role: "Backend Developer",
       imgSrc: "https://storage.googleapis.com/a1aa/image/dkaIdpzqlqPON0FSnBLa2gdo67vjdWOHiXVd2YSelxQ.jpg"
-    },
-    {
-      name: "Anton Peterson",
-      role: "Software Developer",
-      imgSrc: "https://storage.googleapis.com/a1aa/image/9WCFVVY6KOQ-aXCto2EqJ_uCLheRYsx9Q34yVA91QGw.jpg"
-    },
-    {
-      name: "Matew Jackson",
-      role: "Product Designer",
-      imgSrc: "https://storage.googleapis.com/a1aa/image/YD6Uz9aspkAl1cmTBntzN_acmvhsoCzrwL3D1yP6cg8.jpg"
     }
   ];
 
   return (
-    <div className="bg-white p-6 rounded-lg">
+    <div className="bg-white p-6 rounded-lg shadow-sm h-full">
       <h2 className="text-lg font-semibold mb-4">Your Mentor</h2>
-      <ul className="max-h-96 overflow-y-auto">
+      <ul className="space-y-4">
         {mentors.map((mentor, index) => (
-          <MentorItem key={index} {...mentor} />
+          <li key={index} className="flex items-center">
+            <img alt={mentor.name} className="w-10 h-10 rounded-full mr-3" src={mentor.imgSrc} />
+            <div className="flex-1">
+              <div className="font-medium">{mentor.name}</div>
+              <div className="text-sm text-gray-500">{mentor.role}</div>
+            </div>
+            <button className="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded-lg text-sm transition-colors">
+              Follow
+            </button>
+          </li>
         ))}
       </ul>
-      <button className="bg-purple-600 hover:bg-purple-700 text-white w-full py-2 rounded-lg mt-4 transition-colors">
-        See All
+      <button className="text-purple-600 hover:text-purple-800 w-full py-2 mt-4 text-sm font-medium transition-colors">
+        View All Mentors →
       </button>
     </div>
-  );
-};
-
-const MentorItem = ({ name, role, imgSrc }) => {
-  return (
-    <li className="mb-4 flex items-center">
-      <img alt={name} className="w-8 h-8 rounded-full mr-2" src={imgSrc} />
-      <div className="flex-1">
-        <div>{name}</div>
-        <div className="text-sm text-gray-500">{role}</div>
-      </div>
-      <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-1 rounded-lg text-sm transition-colors">
-        Follow
-      </button>
-    </li>
   );
 };
 
@@ -258,14 +242,7 @@ const ContinueWatchingSection = () => {
     },
     {
       type: "FRONTEND",
-      title: "Beginner's Guide To Becoming A Professional Frontend Developer",
-      imgSrc: "https://storage.googleapis.com/a1aa/image/ekgy5VcEHAG4uGDN9r-fMcaQVbwhmpxDyC9I9ATzT2M.jpg",
-      views: 67,
-      users: 67
-    },
-    {
-      type: "FRONTEND",
-      title: "Beginner's Guide To Becoming A Professional Frontend Developer",
+      title: "Advanced React Patterns",
       imgSrc: "https://storage.googleapis.com/a1aa/image/ekgy5VcEHAG4uGDN9r-fMcaQVbwhmpxDyC9I9ATzT2M.jpg",
       views: 67,
       users: 67
@@ -273,49 +250,34 @@ const ContinueWatchingSection = () => {
   ];
 
   return (
-    <div className="mb-8">
+    <div className="bg-white p-6 rounded-lg shadow-sm h-full">
       <h2 className="text-xl font-semibold mb-4">Continue Watching</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="space-y-4">
         {courses.map((course, index) => (
-          <CourseCard key={index} {...course} />
+          <div key={index} className="flex items-start space-x-4">
+            <img 
+              alt={course.type + " Course"} 
+              className="w-24 h-16 object-cover rounded-lg" 
+              src={course.imgSrc} 
+            />
+            <div className="flex-1">
+              <div className="text-purple-600 text-sm font-semibold">{course.type}</div>
+              <h3 className="font-medium line-clamp-2">{course.title}</h3>
+              <div className="flex items-center mt-2 text-sm text-gray-500">
+                <span>{course.views} views</span>
+                <span className="mx-2">•</span>
+                <span>{course.users} students</span>
+              </div>
+            </div>
+            <button className="text-purple-600 hover:text-purple-800">
+              <FontAwesomeIcon icon={faPlay} />
+            </button>
+          </div>
         ))}
       </div>
-    </div>
-  );
-};
-
-const CourseCard = ({ type, title, imgSrc, views, users }) => {
-  const userImages = [
-    "https://storage.googleapis.com/a1aa/image/x5E_QNH8QdSy3-0zPUoO9gf5BDNl1DKD8K4opASdQs4.jpg",
-    "https://storage.googleapis.com/a1aa/image/PKf1GJSVA090WDLR6qcAxvAQ3tIg8m9hb0mb0E0heOY.jpg",
-    "https://storage.googleapis.com/a1aa/image/pZmCZsK2FgrDohg6Bl7axyriRwQWWSjDx9tHa4eWs5U.jpg"
-  ];
-
-  return (
-    <div className="bg-white p-4 rounded-lg hover:shadow-md transition-shadow">
-      <img 
-        alt={type + " Course"} 
-        className="w-full h-32 object-cover rounded-lg mb-4" 
-        src={imgSrc} 
-      />
-      <div className="text-purple-600 text-sm font-semibold mb-2">{type}</div>
-      <div className="text-lg font-semibold mb-2 line-clamp-2">{title}</div>
-      <div className="flex items-center mb-2">
-        {userImages.map((img, i) => (
-          <img 
-            key={i} 
-            alt={`User ${i+1}`} 
-            className="w-6 h-6 rounded-full mr-2 border-2 border-white" 
-            src={img} 
-            style={{ zIndex: userImages.length - i }}
-          />
-        ))}
-        <div className="text-sm text-gray-500">+{users - 3}</div>
-      </div>
-      <div className="flex items-center justify-between">
-        <div className="text-sm text-gray-500">{views} views</div>
-        <FontAwesomeIcon icon={faPlay} className="text-purple-600 cursor-pointer" />
-      </div>
+      <button className="text-purple-600 hover:text-purple-800 w-full py-2 mt-4 text-sm font-medium transition-colors">
+        View All Courses →
+      </button>
     </div>
   );
 };
@@ -343,36 +305,37 @@ const MentorTableSection = () => {
   ];
 
   return (
-    <div>
-      <h2 className="text-xl font-semibold mb-4">Your Mentor</h2>
-      <div className="bg-white p-4 rounded-lg overflow-x-auto">
-        <table className="w-full min-w-max">
-          <thead>
-            <tr className="text-left border-b">
-              <th className="pb-2 text-gray-500 font-medium">INSTRUCTOR NAME & DATE</th>
-              <th className="pb-2 text-gray-500 font-medium">COURSE TYPE</th>
-              <th className="pb-2 text-gray-500 font-medium">COURSE TITLE</th>
-              <th className="pb-2 text-gray-500 font-medium">ACTIONS</th>
+    <div className="bg-white p-6 rounded-lg shadow-sm">
+      <h2 className="text-xl font-semibold mb-4">Mentor Activities</h2>
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead className="bg-gray-50">
+            <tr>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Instructor</th>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Course Type</th>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-white divide-y divide-gray-200">
             {mentors.map((mentor, index) => (
-              <tr key={index} className="border-b last:border-b-0">
-                <td className="py-4">
-                  <div>{mentor.name}</div>
+              <tr key={index} className="hover:bg-gray-50">
+                <td className="px-4 py-3 whitespace-nowrap">
+                  <div className="font-medium">{mentor.name}</div>
                   <div className="text-sm text-gray-500">{mentor.date}</div>
                 </td>
-                <td className="py-4">
-                  <div className="bg-purple-100 text-purple-600 px-2 py-1 rounded-lg inline-block text-sm">
+                <td className="px-4 py-3 whitespace-nowrap">
+                  <span className="bg-purple-100 text-purple-600 px-2 py-1 rounded-full text-xs font-medium">
                     {mentor.type}
-                  </div>
+                  </span>
                 </td>
-                <td className="py-4">{mentor.title}</td>
-                <td className="py-4">
-                  <FontAwesomeIcon 
-                    icon={faEllipsisH} 
-                    className="text-gray-500 hover:text-purple-600 cursor-pointer" 
-                  />
+                <td className="px-4 py-3">
+                  <div className="text-sm">{mentor.title}</div>
+                </td>
+                <td className="px-4 py-3 whitespace-nowrap text-right text-sm font-medium">
+                  <button className="text-gray-400 hover:text-gray-600">
+                    <FontAwesomeIcon icon={faEllipsisH} />
+                  </button>
                 </td>
               </tr>
             ))}
