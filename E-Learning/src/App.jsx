@@ -9,6 +9,7 @@ import Badges from "./components/badges/badges";
 import CareerGrowth from "./components/growth/CareerGrowth";
 import DiscussionForum from "./components/forums/Forums";
 import LeaderBoard from "./components/leaderboard/Leaderboard";
+import ChatBot from "./components/chatbot/ChatBot";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
          <Route path="/growth" element={ <CareerGrowth/>} />
          <Route path="/forum" element={ <DiscussionForum/>} />
          <Route path="/leader" element={ <LeaderBoard/>} />
+         <Route path="/chat-bot" element= { <ChatBot />} />
 
        </Routes>
      </Router>
