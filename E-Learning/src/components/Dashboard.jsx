@@ -1,10 +1,15 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faTachometerAlt, faInbox, faBook, faTasks, faUsers, 
-  faCog, faSignOutAlt, faBell, faEnvelope, faPlay, faEllipsisH 
+  faTachometerAlt,faCircleQuestion, faBook, faUsers, 
+  faCog, faSignOutAlt, faBell, faEnvelope, faPlay, faEllipsisH, 
+  faTrophy,
+  faArrowUpRightDots,
+  faBookOpenReader,
+  faWebAwesome
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import MentorDashboard from './mentorDashboard/MentorDashboard';
 
 const CourseDashboard = () => {
   return (
@@ -86,11 +91,14 @@ const Sidebar = () => {
       <div className="mb-8">
         <h2 className="text-lg font-semibold mb-4">OVERVIEW</h2>
         <ul>
-          <SidebarItem icon={faTachometerAlt} text="Dashboard" active />
-          <SidebarItem icon={faInbox} text="Inbox" />
-          <SidebarItem icon={faBook} text="Lesson" />
-          <SidebarItem icon={faTasks} text="Task" />
-          <SidebarItem icon={faUsers} text="Group" />
+          <Link to="/"><SidebarItem icon={faTachometerAlt} text="Dashboard"active /></Link>
+          <Link to="/quests"><SidebarItem icon={faCircleQuestion} text="Learning Quests" /></Link>
+          <Link to="/quizes"><SidebarItem icon={faBook} text="Quizzes and Challenges" /></Link>
+          <Link to="/badges"><SidebarItem icon={faTrophy} text="Badges And Achievement" /></Link>
+          <Link to="/growth"><SidebarItem icon={faArrowUpRightDots} text="Career Growth Graphs" /></Link>
+          <Link to="/forum"><SidebarItem icon={faUsers} text="Discussion Forums" /></Link>
+          <Link to="/leader"><SidebarItem icon={faBookOpenReader} text="Leader Board" /></Link>
+          <SidebarItem icon={faWebAwesome} text="Chatbot" />
         </ul>
       </div>
       
