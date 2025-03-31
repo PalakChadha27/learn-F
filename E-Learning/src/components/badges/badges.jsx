@@ -1,98 +1,76 @@
 import React from 'react';
-import { FaGraduationCap, FaAward, FaCertificate, FaBookOpen, FaHome, FaBook, FaTrophy, FaFileAlt } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faTachometerAlt, faCircleQuestion, faBook, faUsers, 
+  faCog, faSignOutAlt, faBell, faEnvelope, faPlay, faEllipsisH, 
+  faTrophy, faArrowUpRightDots, faBookOpenReader, faWebAwesome
+} from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import { FaGraduationCap, FaAward, FaCertificate, FaBookOpen, FaHome, FaTrophy as FaTrophy2 } from 'react-icons/fa';
 
 const Badges = () => {
   return (
-    <div className="bg-gray-100 min-h-screen flex">
-      {/* Expanded Left Sidebar */}
-      <div className="w-64 bg-gradient-to-b from-purple-700 to-purple-900 p-6 text-white hidden lg:block">
-        <div className="sticky top-6">
-          <div className="flex items-center mb-8">
-            <FaGraduationCap className="text-2xl mr-3 text-purple-300" />
-            <h2 className="text-xl font-bold">EduTrack</h2>
-          </div>
-          
-          {/* User Profile Summary */}
-          <div className="bg-purple-600 p-4 rounded-lg mb-8">
-            <div className="flex items-center mb-3">
-              <img 
-                alt="User profile" 
-                className="w-12 h-12 rounded-full border-2 border-white mr-3" 
-                src="https://randomuser.me/api/portraits/women/44.jpg" 
-              />
-              <div>
-                <p className="font-bold">Sarah Johnson</p>
-                <p className="text-xs text-purple-200">Gold Member</p>
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-2 text-center">
-              <div className="bg-purple-700 p-2 rounded">
-                <p className="text-xl font-bold">8</p>
-                <p className="text-xs">Courses</p>
-              </div>
-              <div className="bg-purple-700 p-2 rounded">
-                <p className="text-xl font-bold">15</p>
-                <p className="text-xs">Badges</p>
-              </div>
-              <div className="bg-purple-700 p-2 rounded">
-                <p className="text-xl font-bold">5</p>
-                <p className="text-xs">Certs</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Navigation Menu */}
-          <nav className="space-y-2">
-            <a href="#" className="flex items-center p-3 rounded-lg bg-purple-800 text-white">
-              <FaHome className="mr-3" />
-              Dashboard
-            </a>
-            <a href="#" className="flex items-center p-3 rounded-lg hover:bg-purple-800 text-purple-200 hover:text-white transition">
-              <FaBook className="mr-3" />
-              My Courses
-            </a>
-            <a href="#" className="flex items-center p-3 rounded-lg hover:bg-purple-800 text-purple-200 hover:text-white transition">
-              <FaTrophy className="mr-3" />
-              Achievements
-            </a>
-            <a href="#" className="flex items-center p-3 rounded-lg hover:bg-purple-800 text-purple-200 hover:text-white transition">
-              <FaFileAlt className="mr-3" />
-              Certificates
-            </a>
-            <a href="#" className="flex items-center p-3 rounded-lg hover:bg-purple-800 text-purple-200 hover:text-white transition">
-              <FaAward className="mr-3" />
-              Badges
-            </a>
-          </nav>
-
-          {/* Progress Section */}
-          <div className="mt-8">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-purple-300 mb-3">Your Progress</h3>
-            <div className="space-y-3">
-              <div>
-                <div className="flex justify-between text-xs mb-1">
-                  <span>Monthly Goal</span>
-                  <span>65%</span>
-                </div>
-                <div className="w-full bg-purple-800 rounded-full h-2">
-                  <div className="bg-yellow-400 h-2 rounded-full" style={{ width: '65%' }}></div>
-                </div>
-              </div>
-              <div>
-                <div className="flex justify-between text-xs mb-1">
-                  <span>Yearly Target</span>
-                  <span>42%</span>
-                </div>
-                <div className="w-full bg-purple-800 rounded-full h-2">
-                  <div className="bg-green-400 h-2 rounded-full" style={{ width: '42%' }}></div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="flex min-h-screen bg-gray-100 text-gray-800 font-inter">
+      {/* Sidebar - Updated to match CareerGrowth.jsx */}
+      <div className="w-64 bg-white p-6">
+        <div className="flex items-center mb-8">
+          <div className="text-purple-600 text-3xl font-bold">C!</div>
+          <div className="ml-2 text-xl font-semibold">COURSE</div>
+        </div>
+        
+        <div className="mb-8">
+          <input 
+            className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-200" 
+            placeholder="Search your course here..." 
+            type="text" 
+          />
+        </div>
+        
+        <div className="mb-8">
+          <h2 className="text-lg font-semibold mb-4">OVERVIEW</h2>
+          <ul>
+            <Link to="/"><SidebarItem icon={faTachometerAlt} text="Dashboard"/></Link>
+            <Link to="/quests"><SidebarItem icon={faCircleQuestion} text="Learning Quests"/></Link>
+            <Link to="/quizes"><SidebarItem icon={faBook} text="Quizzes and Challenges"/></Link>
+            <Link to="/badges"><SidebarItem icon={faTrophy} text="Badges And Achievement" active/></Link>
+            <Link to="/growth"><SidebarItem icon={faArrowUpRightDots} text="Career Growth Graphs"/></Link>
+            <Link to="/forum"><SidebarItem icon={faUsers} text="Discussion Forums"/></Link>
+            <Link to="/leader"><SidebarItem icon={faBookOpenReader} text="Leader Board"/></Link>
+            <SidebarItem icon={faWebAwesome} text="Chatbot"/>
+          </ul>
+        </div>
+        
+        <div className="mb-8">
+          <h2 className="text-lg font-semibold mb-4">FRIENDS</h2>
+          <ul>
+            <FriendItem 
+              name="Andrew Meter" 
+              role="Software Developer" 
+              imgSrc="https://storage.googleapis.com/a1aa/image/Uvfi4E1H5sZH_zeBWy20ktPIJwvjVPTX2v5UCGSBlmc.jpg" 
+            />
+            <FriendItem 
+              name="Jeff Linkoln" 
+              role="Product Owner" 
+              imgSrc="https://storage.googleapis.com/a1aa/image/vXSsRsaaywWwClXN3DvfIaIp1wPesYN4VD7Ijpoo0fU.jpg" 
+            />
+            <FriendItem 
+              name="Sasha Melstone" 
+              role="HR Manager" 
+              imgSrc="https://storage.googleapis.com/a1aa/image/PpKB9Mt7kmyTFx-bidRpQrbDyi2su1a10HF2DrwqXHs.jpg" 
+            />
+          </ul>
+        </div>
+        
+        <div>
+          <h2 className="text-lg font-semibold mb-4">SETTINGS</h2>
+          <ul>
+            <SidebarItem icon={faCog} text="Settings"/>
+            <SidebarItem icon={faSignOutAlt} text="Logout" logout/>
+          </ul>
         </div>
       </div>
 
-      {/* Main Content Area */}
+      {/* Main Content Area - Rest of your existing Badges content */}
       <div className="flex-1 p-8">
         {/* Header */}
         <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white py-12 rounded-2xl mb-8">
@@ -260,6 +238,29 @@ const Badges = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+// Component for sidebar items
+const SidebarItem = ({ icon, text, active = false, logout = false }) => {
+  return (
+    <li className={`mb-4 flex items-center ${active ? 'text-purple-600 font-semibold' : ''} ${logout ? 'text-red-600' : ''}`}>
+      <FontAwesomeIcon icon={icon} className="mr-2 w-4" />
+      {text}
+    </li>
+  );
+};
+
+// Component for friend items
+const FriendItem = ({ name, role, imgSrc }) => {
+  return (
+    <li className="flex items-center mb-4">
+      <img src={imgSrc} alt={name} className="w-10 h-10 rounded-full mr-2" />
+      <div>
+        <div className="font-semibold">{name}</div>
+        <div className="text-sm text-gray-600">{role}</div>
+      </div>
+    </li>
   );
 };
 
