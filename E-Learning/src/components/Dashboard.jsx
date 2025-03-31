@@ -98,7 +98,7 @@ const Sidebar = () => {
           <Link to="/growth"><SidebarItem icon={faArrowUpRightDots} text="Career Growth Graphs" /></Link>
           <Link to="/forum"><SidebarItem icon={faUsers} text="Discussion Forums" /></Link>
           <Link to="/leader"><SidebarItem icon={faBookOpenReader} text="Leader Board" /></Link>
-          <SidebarItem icon={faWebAwesome} text="Chatbot" />
+          <Link to="/chat-bot"><SidebarItem icon={faWebAwesome} text="Chatbot" /></Link>
         </ul>
       </div>
       
