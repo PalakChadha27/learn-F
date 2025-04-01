@@ -4,7 +4,7 @@ import {
   faTachometerAlt, faCircleQuestion, faBook, faUsers, 
   faCog, faSignOutAlt, faBell, faEnvelope, faPlay, faEllipsisH, 
   faTrophy, faArrowUpRightDots, faBookOpenReader, faWebAwesome,
-  faChartLine, faLightbulb, faRoad
+  faChartLine, faLightbulb, faRoad, faCode, faLaptopCode, faGraduationCap
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
@@ -30,15 +30,15 @@ const CareerGrowth = () => {
   const barChartData = {
     datasets: [
       {
-        label: 'Applications',
+        label: 'Courses Completed',
         backgroundColor: 'rgba(124, 58, 237, 0.7)',
       },
       {
-        label: 'Interviews',
+        label: 'Projects Built',
         backgroundColor: 'rgba(59, 130, 246, 0.7)',
       },
       {
-        label: 'Offers',
+        label: 'Coding Hours',
         backgroundColor: 'rgba(16, 185, 129, 0.7)',
       }
     ],
@@ -65,24 +65,24 @@ const CareerGrowth = () => {
   // Skill Roadmap Data
   const skillRoadmaps = {
     'JavaScript': [
-      { month: 'Month 1', tasks: ['Master ES6+ features', 'Complete 30 coding challenges', 'Learn functional programming'] },
-      { month: 'Month 2', tasks: ['Study design patterns', 'Build portfolio project', 'Learn testing frameworks'] },
-      { month: 'Month 3', tasks: ['Performance optimization', 'Contribute to open source', 'Learn TypeScript integration'] }
+      { month: 'Month 1', tasks: ['Complete ES6 Fundamentals', 'Build 10 small projects', 'Solve 30 coding challenges'] },
+      { month: 'Month 2', tasks: ['Learn Design Patterns', 'Complete Advanced JS Course', 'Build a portfolio project'] },
+      { month: 'Month 3', tasks: ['Master Async Programming', 'Learn Testing with Jest', 'Contribute to open source'] }
     ],
     'React': [
-      { month: 'Month 1', tasks: ['Master React hooks', 'Build 3 small apps', 'Learn component architecture'] },
-      { month: 'Month 2', tasks: ['State management', 'API integration', 'Authentication flows'] },
-      { month: 'Month 3', tasks: ['Advanced patterns', 'Performance tuning', 'Server-side rendering'] }
+      { month: 'Month 1', tasks: ['Complete React Basics', 'Build 3 component-based apps', 'Learn React Hooks'] },
+      { month: 'Month 2', tasks: ['State Management with Redux', 'Complete Advanced React Course', 'Build a full-stack app'] },
+      { month: 'Month 3', tasks: ['Performance Optimization', 'Learn Server-side Rendering', 'Build a complex dashboard'] }
     ],
     'Node.js': [
-      { month: 'Month 1', tasks: ['Core modules', 'REST API development', 'Middleware concepts'] },
-      { month: 'Month 2', tasks: ['Authentication', 'Database integration', 'Caching strategies'] },
-      { month: 'Month 3', tasks: ['Deployment', 'Performance monitoring', 'Microservices'] }
+      { month: 'Month 1', tasks: ['Learn Core Modules', 'Build REST API', 'Complete Node Fundamentals'] },
+      { month: 'Month 2', tasks: ['Database Integration', 'Authentication Systems', 'Complete Backend Course'] },
+      { month: 'Month 3', tasks: ['Microservices Architecture', 'Deployment Strategies', 'Build a scalable API'] }
     ],
     'Python': [
-      { month: 'Month 1', tasks: ['Data structures', 'Algorithms course', 'OOP principles'] },
-      { month: 'Month 2', tasks: ['Web frameworks', 'CRUD applications', 'ORMs'] },
-      { month: 'Month 3', tasks: ['Data analysis', 'ML basics', 'Automation scripts'] }
+      { month: 'Month 1', tasks: ['Python Fundamentals', 'Complete Data Structures', 'Build CLI tools'] },
+      { month: 'Month 2', tasks: ['Web Development with Django', 'Complete Algorithms Course', 'Build a web scraper'] },
+      { month: 'Month 3', tasks: ['Data Analysis with Pandas', 'Machine Learning Basics', 'Automation Scripts'] }
     ]
   };
 
@@ -106,24 +106,24 @@ const CareerGrowth = () => {
       ? ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
       : ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     
-    const appData = timeRange === 'year' 
-      ? [120, 190, 150, 220, 180, 200, 240, 280, 300, 320, 350, 400]
-      : [40, 60, 75, 90, 110, 130];
+    const coursesData = timeRange === 'year' 
+      ? [2, 3, 5, 4, 6, 8, 7, 9, 10, 8, 6, 7]
+      : [3, 4, 5, 6, 7, 8];
     
-    const intData = timeRange === 'year' 
-      ? [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160]
-      : [15, 20, 25, 30, 35, 40];
+    const projectsData = timeRange === 'year' 
+      ? [1, 2, 3, 2, 4, 5, 6, 7, 8, 6, 5, 7]
+      : [2, 3, 4, 5, 6, 7];
     
-    const offerData = timeRange === 'year' 
-      ? [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65]
-      : [3, 5, 7, 9, 11, 13];
+    const hoursData = timeRange === 'year' 
+      ? [20, 25, 30, 35, 40, 45, 50, 55, 60, 50, 45, 55]
+      : [30, 35, 40, 45, 50, 55];
 
     return {
       labels,
       datasets: [
-        { ...barChartData.datasets[0], data: appData },
-        { ...barChartData.datasets[1], data: intData },
-        { ...barChartData.datasets[2], data: offerData }
+        { ...barChartData.datasets[0], data: coursesData },
+        { ...barChartData.datasets[1], data: projectsData },
+        { ...barChartData.datasets[2], data: hoursData }
       ]
     };
   };
@@ -152,7 +152,7 @@ const CareerGrowth = () => {
             <Link to="/quests"><SidebarItem icon={faCircleQuestion} text="Learning Quests"/></Link>
             <Link to="/quizes"><SidebarItem icon={faBook} text="Quizzes and Challenges"/></Link>
             <Link to="/badges"><SidebarItem icon={faTrophy} text="Badges And Achievement"/></Link>
-            <Link to="/growth"><SidebarItem icon={faArrowUpRightDots} text="Career Growth Graphs" active/></Link>
+            <Link to="/growth"><SidebarItem icon={faArrowUpRightDots} text="Learning Progress" active/></Link>
             <Link to="/forum"><SidebarItem icon={faUsers} text="Discussion Forums"/></Link>
             <Link to="/leader"><SidebarItem icon={faBookOpenReader} text="Leader Board"/></Link>
             <SidebarItem icon={faWebAwesome} text="Chatbot"/>
@@ -164,17 +164,17 @@ const CareerGrowth = () => {
           <ul>
             <FriendItem 
               name="Andrew Meter" 
-              role="Software Developer" 
+              role="Web Developer" 
               imgSrc="https://storage.googleapis.com/a1aa/image/Uvfi4E1H5sZH_zeBWy20ktPIJwvjVPTX2v5UCGSBlmc.jpg" 
             />
             <FriendItem 
               name="Jeff Linkoln" 
-              role="Product Owner" 
+              role="Python Mentor" 
               imgSrc="https://storage.googleapis.com/a1aa/image/vXSsRsaaywWwClXN3DvfIaIp1wPesYN4VD7Ijpoo0fU.jpg" 
             />
             <FriendItem 
               name="Sasha Melstone" 
-              role="HR Manager" 
+              role="React Expert" 
               imgSrc="https://storage.googleapis.com/a1aa/image/PpKB9Mt7kmyTFx-bidRpQrbDyi2su1a10HF2DrwqXHs.jpg" 
             />
           </ul>
@@ -194,7 +194,7 @@ const CareerGrowth = () => {
         {/* Top Navigation */}
         <div className="flex justify-between items-center mb-8">
           <div className="flex items-center space-x-4">
-            <h1 className="text-2xl font-bold text-purple-800">Career Analysis Dashboard</h1>
+            <h1 className="text-2xl font-bold text-purple-800">Learning Progress Dashboard</h1>
           </div>
           <div className="flex items-center space-x-4">
             <button className="p-2 text-gray-600 hover:text-purple-600">
@@ -214,57 +214,57 @@ const CareerGrowth = () => {
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <StatCard 
-            title="Total Applications" 
-            value="2,931" 
-            change="+1.03%" 
-            icon={faArrowUpRightDots}
+            title="Courses Completed" 
+            value="42" 
+            change="+15% from last month" 
+            icon={faGraduationCap}
             color="purple"
           />
           <StatCard 
-            title="Interviews Scheduled" 
-            value="381" 
-            change="+1.03%" 
-            icon={faPlay}
+            title="Projects Built" 
+            value="27" 
+            change="+8% from last month" 
+            icon={faLaptopCode}
             color="blue"
           />
           <StatCard 
-            title="Offers Received" 
-            value="951" 
-            change="+1.03%" 
-            icon={faTrophy}
+            title="Coding Hours" 
+            value="386" 
+            change="+12% from last month" 
+            icon={faCode}
             color="green"
           />
         </div>
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-          {/* Career Path Analysis - 2 columns */}
+          {/* Learning Path Analysis - 2 columns */}
           <div className="bg-white p-6 rounded-xl shadow-md lg:col-span-2">
             <h2 className="text-xl font-bold text-purple-800 mb-4">
-              Career Path Analysis
+              Learning Path Analysis
             </h2>
             <p className="text-gray-600 mb-4">
-              Your career progression in last 30 days
+              Your learning progression in last 30 days
             </p>
             <div className="space-y-4">
               <MetricCard 
-                title="Applications Sent" 
-                value="24,199" 
-                change="+1.03% Higher than last month" 
+                title="Lessons Completed" 
+                value="87" 
+                change="+15% Higher than last month" 
               />
               <MetricCard 
-                title="Interviews Completed" 
-                value="24,199" 
-                change="+3.13% Higher than last month" 
+                title="Challenges Solved" 
+                value="42" 
+                change="+8% Higher than last month" 
               />
             </div>
           </div>
 
-          {/* Career Progress - 3 columns */}
+          {/* Learning Progress - 3 columns */}
           <div className="bg-white p-6 rounded-xl shadow-md lg:col-span-3">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-bold text-purple-800">
-                Career Progress
+                Learning Progress
               </h2>
               <div className="flex space-x-2">
                 <button 
@@ -291,10 +291,10 @@ const CareerGrowth = () => {
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-purple-800 flex items-center">
                 <FontAwesomeIcon icon={faChartLine} className="mr-2" />
-                Top Skills Analysis
+                Skill Proficiency
               </h2>
               <div className="text-sm text-gray-500">
-                <span className="font-bold text-purple-700">31,119</span> points
+                <span className="font-bold text-purple-700">1,240</span> skill points
               </div>
             </div>
             
@@ -314,7 +314,7 @@ const CareerGrowth = () => {
                       skill === 'JavaScript' ? 80 :
                       skill === 'React' ? 57 : 46;
                     const level = 
-                      skill === 'JavaScript' ? 'Expert' : 'Intermediate';
+                      skill === 'JavaScript' ? 'Advanced' : 'Intermediate';
                     
                     return (
                       <SkillItem 
@@ -378,16 +378,16 @@ const CareerGrowth = () => {
             )}
           </div>
 
-          {/* New Skill Development Roadmap - 2 columns */}
+          {/* Skill Development Roadmap - 2 columns */}
           <div className="bg-white p-6 rounded-xl shadow-md lg:col-span-2">
             <h2 className="text-xl font-bold text-purple-800 mb-4 flex items-center">
               <FontAwesomeIcon icon={faRoad} className="mr-2" />
-              Skill Development Roadmap
+              Learning Roadmap
             </h2>
             
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Select Skill to Develop
+                Select Skill to Learn
               </label>
               <select
                 value={roadmapSkill}
