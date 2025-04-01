@@ -11,7 +11,7 @@ import {
 import { Link } from 'react-router-dom';
 import MentorDashboard from './mentorDashboard/MentorDashboard';
 
-const CourseDashboard = () => {
+const Dashboard = () => {
   return (
     <div className="flex min-h-screen right-0 mr-0 bg-gray-100 text-gray-800 font-inter">
       {/* Sidebar */}
@@ -360,4 +360,4 @@ const MentorTableSection = () => {
   );
 };
 
-export default CourseDashboard;
+export default Dashboard;
