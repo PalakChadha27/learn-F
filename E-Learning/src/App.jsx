@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Signup from "./components/Signup";
 import MentorDashboard from "./components/mentorDashboard/MentorDashboard";
-import LearningQuests from "./components/learningquests/quests";
+import LearningQuests from "./components/learningquests/Quests";
 import Quizes from "./components/quizes/quizes";
 import Badges from "./components/badges/badges";
 import CareerGrowth from "./components/growth/CareerGrowth";
